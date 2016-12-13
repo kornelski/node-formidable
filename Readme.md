@@ -33,7 +33,7 @@ vim my.js
 # var formidable = require('./formidable');
 ```
 
-Note: Formidable requires [gently](http://github.com/pornel/node-gently) to run the unit tests, but you won't need it for just using the library.
+Note: Formidable requires [gently](http://github.com/felixge/node-gently) to run the unit tests, but you won't need it for just using the library.
 
 ## Example
 
