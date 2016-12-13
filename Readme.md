@@ -270,6 +270,19 @@ Emitted when the entire request has been received, and all contained files have 
 
 ## Changelog
 
+### v1.1.0
+
+Fork with merges of pending pull requests:
+
+ * Fix DeprecationWarning about os.tmpDir() (Christian)
+ * Update `buffer.write` order of arguments for Node 7 (Kornel Lesiński)
+ * JSON Parser emits error events to the IncomingForm (alessio.montagnani)
+ * Improved Content-Disposition parsing (Sebastien)
+ * Access WriteStream of fs during runtime instead of include time (Jonas Amundsen)
+ * Use built-in toString to convert buffer to hex (Charmander)
+ * Add hash to json if present (Nick Stamas)
+ * Add license to package.json (Simen Bekkhus)
+
 ### v1.0.14
 
 * Add failing hash tests. (Ben Trask)
