@@ -1,4 +1,4 @@
-# Formidable
+# Formidable7
 
 [![Build Status](https://secure.travis-ci.org/pornel/node-formidable.png?branch=master)](http://travis-ci.org/pornel/node-formidable)
 
@@ -20,18 +20,11 @@ This is a [fork](https://github.com/felixge/node-formidable) of Formidable updat
 
 ## Installation
 
-This is a low level package, and if you're using a high level framework such as Express, chances are it's already included in it. You can [read this discussion](http://stackoverflow.com/questions/11295554/how-to-disable-express-bodyparser-for-file-uploads-node-js) about how Formidable is integrated with Express.
+```sh
+npm i -S formidable7
+```
 
-Via [npm](http://github.com/isaacs/npm):
-```
-npm install formidable@latest
-```
-Manually:
-```
-git clone git://github.com/pornel/node-formidable.git formidable
-vim my.js
-# var formidable = require('./formidable');
-```
+This is a low level package, and if you're using a high level framework such as Express, chances are it's already included in it. You can [read this discussion](http://stackoverflow.com/questions/11295554/how-to-disable-express-bodyparser-for-file-uploads-node-js) about how Formidable is integrated with Express.
 
 Note: Formidable requires [gently](http://github.com/felixge/node-gently) to run the unit tests, but you won't need it for just using the library.
 
