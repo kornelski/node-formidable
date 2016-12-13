@@ -12,7 +12,7 @@ This is a [fork](https://github.com/felixge/node-formidable) of Formidable updat
 
 ## Features
 
-* Fast (~500mb/sec), non-buffering multipart parser
+* [Fast](https://github.com/pornel/node-formidable/blob/master/benchmark/bench-multipart-parser.js), non-buffering multipart parser
 * Automatically writing file uploads to disk
 * Low memory footprint
 * Graceful error handling
@@ -24,27 +24,30 @@ This is a [fork](https://github.com/felixge/node-formidable) of Formidable updat
 npm i -S formidable7
 ```
 
-This is a low level package, and if you're using a high level framework such as Express, chances are it's already included in it. You can [read this discussion](http://stackoverflow.com/questions/11295554/how-to-disable-express-bodyparser-for-file-uploads-node-js) about how Formidable is integrated with Express.
+This is a low level package, and if you're using a high level framework such as Express, use [express-formparse](https://github.com/pornel/express-formparse).
 
-Note: Formidable requires [gently](http://github.com/felixge/node-gently) to run the unit tests, but you won't need it for just using the library.
+```sh
+npm i -S express-formparse7
+```
 
 ## Example
 
 Parse an incoming file upload.
-```javascript
-var formidable = require('formidable'),
+
+```js
+const formidable = require('formidable'),
     http = require('http'),
     util = require('util');
 
-http.createServer(function(req, res) {
-  if (req.url == '/upload' && req.method.toLowerCase() == 'post') {
+http.createServer((req, res) => {
+  if (req.url == '/upload' && req.method == 'POST') {
     // parse a file upload
-    var form = new formidable.IncomingForm();
+    const form = new formidable.IncomingForm();
 
-    form.parse(req, function(err, fields, files) {
+    form.parse(req, (err, fields, files) => {
       res.writeHead(200, {'content-type': 'text/plain'});
       res.write('received upload:\n\n');
-      res.end(util.inspect({fields: fields, files: files}));
+      res.end(util.inspect({fields, files}));
     });
 
     return;
@@ -52,15 +55,16 @@ http.createServer(function(req, res) {
 
   // show a file upload form
   res.writeHead(200, {'content-type': 'text/html'});
-  res.end(
-    '<form action="/upload" enctype="multipart/form-data" method="post">'+
-    '<input type="text" name="title"><br>'+
-    '<input type="file" name="upload" multiple="multiple"><br>'+
-    '<input type="submit" value="Upload">'+
-    '</form>'
-  );
+  res.end(`
+    <form action="/upload" enctype="multipart/form-data" method="post">
+    <input type="text" name="title"><br>
+    <input type="file" name="upload" multiple="multiple"><br>
+    <input type="submit" value="Upload">
+    </form>
+  `);
 }).listen(8080);
 ```
+
 ## API
 
 ### Formidable.IncomingForm
