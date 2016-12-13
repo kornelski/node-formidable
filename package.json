@@ -20,7 +20,7 @@
     "clean": "rm test/tmp/*"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=4"
   },
   "repository": {
     "type": "git",
