@@ -1,6 +1,6 @@
 # Formidable7
 
-[![Build Status](https://secure.travis-ci.org/pornel/node-formidable.png?branch=master)](http://travis-ci.org/pornel/node-formidable)
+[![Build Status](https://secure.travis-ci.org/felixge/node-formidable.png?branch=master)](http://travis-ci.org/felixge/node-formidable)
 
 ## Purpose
 
@@ -8,7 +8,9 @@ A Node.js module for parsing form data, especially file uploads.
 
 ## Current status
 
-This is a [fork](https://github.com/felixge/node-formidable) of Formidable updated to be compatible with Node 7.
+This module was developed for [Transloadit](http://transloadit.com/), a service focused on uploading
+and encoding images and videos. It has been battle-tested against hundreds of GB of file uploads from
+a large variety of clients and is considered production-ready.
 
 ## Features
 
@@ -21,14 +23,12 @@ This is a [fork](https://github.com/felixge/node-formidable) of Formidable updat
 ## Installation
 
 ```sh
-npm i -S formidable7
+npm i -S formidable
 ```
 
-This is a low level package, and if you're using a high level framework such as Express, use [express-formparse](https://github.com/pornel/express-formparse).
+This is a low level package, and if you're using a high level framework such as Express, chances are it's already included in it. You can [read this discussion](http://stackoverflow.com/questions/11295554/how-to-disable-express-bodyparser-for-file-uploads-node-js) about how Formidable is integrated with Express.
 
-```sh
-npm i -S express-formparse7
-```
+Note: Formidable requires [gently](http://github.com/felixge/node-gently) to run the unit tests, but you won't need it for just using the library.
 
 ## Example
 
@@ -267,9 +267,7 @@ Emitted when the entire request has been received, and all contained files have 
 
 ## Changelog
 
-### v1.1.0
-
-Fork with merges of pending pull requests:
+### Unreleased yet
 
  * Fix DeprecationWarning about os.tmpDir() (Christian)
  * Update `buffer.write` order of arguments for Node 7 (Kornel Lesiński)
